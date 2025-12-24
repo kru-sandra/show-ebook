@@ -27,11 +27,6 @@ body{
   margin-left:10px;
 }
 
-.top-actions{
-  display:flex;
-  align-items:center;
-}
-
 h1{
   text-align:center;
   margin:10px 0 20px;
@@ -94,10 +89,6 @@ footer{
 <!-- TOP -->
 <div class="top-bar">
   <a href="ebook.html">🏠 Home</a>
-
-  <div class="top-actions">
-    <a href="#" onclick="logout()">🚪 Logout</a>
-  </div>
 </div>
 
 <h1>หมวดบุคคล</h1>
@@ -105,7 +96,7 @@ footer{
 <!-- GALLERY -->
 <div class="gallery">
 
-    <div class="card">
+  <div class="card">
     <img src="images/person/p5008.jpg" alt="Prompt บุคคล 084">
     <a href="prompt-person-084.html">Prompt 084</a>
   </div>
@@ -145,7 +136,6 @@ footer{
     <a href="prompt-person-006.html">Prompt 077</a>
   </div>
 
-  
 </div>
 
 <!-- PAGINATION -->
@@ -158,20 +148,5 @@ footer{
 © 2025 AI Persona Studio | Created by Kru Sandra | All rights reserved.
 </footer>
 
-<script>
-/* 🔒 Login Guard */
-if(localStorage.getItem("loggedIn") !== "true"){
-  window.location.href = "index.html";
-}
-
-function logout(){
-  if(confirm("ต้องการออกจากระบบหรือไม่?")){
-    localStorage.removeItem("loggedIn");
-    window.location.href = "index.html";
-  }
-}
-</script>
-
 </body>
 </html>
-
