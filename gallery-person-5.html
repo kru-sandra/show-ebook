@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>หมวดบุคคลหน้าที่ 5</title>
+
+<style>
+body{
+  margin:0;
+  padding:16px;
+  font-family:system-ui, sans-serif;
+  background:#fff5f7;
+}
+
+.top-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.top-bar a{
+  text-decoration:none;
+  color:#ff6f91;
+  font-weight:600;
+  margin-left:10px;
+}
+
+.top-actions{
+  display:flex;
+  align-items:center;
+}
+
+h1{
+  text-align:center;
+  margin:10px 0 20px;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:16px;
+}
+
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:10px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.06);
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+}
+
+.card a{
+  display:block;
+  margin-top:8px;
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  font-size:14px;
+}
+
+.pagination{
+  display:flex;
+  justify-content:space-between;
+  margin:30px 0 10px;
+}
+
+.pagination a{
+  text-decoration:none;
+  background:#ff6f91;
+  color:white;
+  padding:10px 20px;
+  border-radius:999px;
+  font-weight:600;
+}
+
+footer{
+  text-align:center;
+  font-size:12px;
+  color:#999;
+  margin:20px 0;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP -->
+<div class="top-bar">
+  <a href="ebook.html">🏠 Home</a>
+
+  <div class="top-actions">
+    <a href="#" onclick="logout()">🚪 Logout</a>
+  </div>
+</div>
+
+<h1>หมวดบุคคล</h1>
+
+<!-- GALLERY -->
+<div class="gallery">
+
+    <div class="card">
+    <img src="images/person/p5008.jpg" alt="Prompt บุคคล 084">
+    <a href="prompt-person-084.html">Prompt 084</a>
+  </div>
+
+  <div class="card">
+    <img src="images/person/p5007.jpg" alt="Prompt บุคคล 083">
+    <a href="prompt-person-083.html">Prompt 083</a>
+  </div>
+
+  <div class="card">
+    <img src="images/person/p5006.jpg" alt="Prompt บุคคล 082">
+    <a href="prompt-person-001.html">Prompt 082</a>
+  </div>
+
+  <div class="card">
+    <img src="images/person/p5005.jpg" alt="Prompt บุคคล 081">
+    <a href="prompt-person-002.html">Prompt 081</a>
+  </div>
+
+  <div class="card">
+    <img src="images/person/p5004.jpg" alt="Prompt บุคคล 080">
+    <a href="prompt-person-003.html">Prompt 080</a>
+  </div>
+
+  <div class="card">
+    <img src="images/person/p5003.jpg" alt="Prompt บุคคล 079">
+    <a href="prompt-person-004.html">Prompt 079</a>
+  </div>
+
+  <div class="card">
+    <img src="images/person/p5002.jpg" alt="Prompt บุคคล 078">
+    <a href="prompt-person-005.html">Prompt 078</a>
+  </div>
+
+  <div class="card">
+    <img src="images/person/p5001.jpg" alt="Prompt บุคคล 077">
+    <a href="prompt-person-006.html">Prompt 077</a>
+  </div>
+
+  
+</div>
+
+<!-- PAGINATION -->
+<div class="pagination">
+  <span></span>
+  <a href="gallery-person-4.html">Next →</a>
+</div>
+
+<footer>
+© 2025 AI Persona Studio | Created by Kru Sandra | All rights reserved.
+</footer>
+
+<script>
+/* 🔒 Login Guard */
+if(localStorage.getItem("loggedIn") !== "true"){
+  window.location.href = "index.html";
+}
+
+function logout(){
+  if(confirm("ต้องการออกจากระบบหรือไม่?")){
+    localStorage.removeItem("loggedIn");
+    window.location.href = "index.html";
+  }
+}
+</script>
+
+</body>
+</html>
+
