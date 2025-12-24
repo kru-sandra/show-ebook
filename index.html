@@ -1,12 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>เว็บของฉัน</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt eBook | AI Persona Studio</title>
+
+<style>
+body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:100%;
+    max-width:420px;
+    background:#000;
+    text-align:center;
+    position:relative;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn{
+    position:absolute;
+    top:12px;
+    right:12px;
+    background:rgba(255,255,255,0.15);
+    color:#fff;
+    border:none;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    cursor:pointer;
+    display:none; /* ซ่อนปุ่ม logout */
+}
+
+.cover-img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.btn-start{
+    display:block;
+    width:90%;
+    margin:20px auto;
+    padding:16px;
+    background:#ff5fa2;
+    color:#fff;
+    font-size:18px;
+    font-weight:600;
+    border:none;
+    border-radius:14px;
+    cursor:pointer;
+}
+
+.btn-start:hover{
+    background:#ff3f90;
+}
+
+footer{
+    color:#aaa;
+    font-size:12px;
+    text-align:center;
+    padding:12px 8px 20px;
+}
+</style>
 </head>
+
 <body>
-  <h1>ยินดีต้อนรับสู่ e-book ของฉัน 📘</h1>
-  <p>นี่คือหน้าแรก</p>
+
+<div class="container">
+
+    <!-- ภาพปก ebook -->
+    <img src="images/cover.jpg" alt="Prompt eBook Cover" class="cover-img">
+
+    <!-- ปุ่มเริ่มใช้งาน -->
+    <button class="btn-start" onclick="location.href='contents.html'">
+        เริ่มใช้งาน eBook
+    </button>
+
+    <!-- footer -->
+    <footer>
+        © 2025 AI Persona Studio | Created by Kru Sandra | All rights reserved.
+    </footer>
+
+</div>
+
 </body>
 </html>
-
