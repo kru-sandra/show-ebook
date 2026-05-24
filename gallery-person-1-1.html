@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>หมวดบุคคลหน้าที่ 5</title>
+
+<style>
+body{
+  margin:0;
+  padding:16px;
+  font-family:system-ui, sans-serif;
+  background:#fff5f7;
+}
+
+.top-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.top-bar a{
+  text-decoration:none;
+  color:#ff6f91;
+  font-weight:600;
+}
+
+h1{
+  text-align:center;
+  margin:10px 0 20px;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:16px;
+}
+
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:10px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.06);
+}
+
+/* IMAGE + HOVER */
+.img-wrap{
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.img-wrap img{
+  width:100%;
+  display:block;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  transition:.25s;
+}
+
+.img-wrap:hover .overlay{
+  opacity:1;
+}
+
+.buy-btn{
+  background:#ff5fa2;
+  color:#fff;
+  text-decoration:none;
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:600;
+}
+
+/* TITLE */
+.card a.title{
+  display:block;
+  margin-top:8px;
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  font-size:14px;
+}
+
+.pagination{
+  display:flex;
+  justify-content:space-between;
+  margin:30px 0 10px;
+}
+
+.pagination a{
+  text-decoration:none;
+  background:#ff6f91;
+  color:white;
+  padding:10px 20px;
+  border-radius:999px;
+  font-weight:600;
+}
+
+footer{
+  text-align:center;
+  font-size:12px;
+  color:#999;
+  margin:20px 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+  <a href="index.html">🏠 Home</a>
+</div>
+
+<h1>หมวดบุคคล</h1>
+
+<div class="gallery">
+
+  <!-- Prompt 084 -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/person/p5008.jpg" alt="Prompt 084">
+      <div class="overlay">
+        <a href="order.html?prompt=Prompt 084" class="buy-btn">สั่งซื้อ</a>
+      </div>
+    </div>
+    <a href="order.html?prompt=Prompt 084" class="title">Prompt 084</a>
+  </div>
+
+  <!-- Prompt 083 -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/person/p5007.jpg" alt="Prompt 083">
+      <div class="overlay">
+        <a href="order.html?prompt=Prompt 083" class="buy-btn">สั่งซื้อ</a>
+      </div>
+    </div>
+    <a href="order.html?prompt=Prompt 083" class="title">Prompt 083</a>
+  </div>
+
+  <!-- Prompt 082 -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/person/p5006.jpg" alt="Prompt 082">
+      <div class="overlay">
+        <a href="order.html?prompt=Prompt 082" class="buy-btn">สั่งซื้อ</a>
+      </div>
+    </div>
+    <a href="order.html?prompt=Prompt 082" class="title">Prompt 082</a>
+  </div>
+
+  <!-- Prompt 081 -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/person/p5005.jpg" alt="Prompt 081">
+      <div class="overlay">
+        <a href="order.html?prompt=Prompt 081" class="buy-btn">สั่งซื้อ</a>
+      </div>
+    </div>
+    <a href="order.html?prompt=Prompt 081" class="title">Prompt 081</a>
+  </div>
+
+  <!-- Prompt 080 -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/person/p5004.jpg" alt="Prompt 080">
+      <div class="overlay">
+        <a href="order.html?prompt=Prompt 080" class="buy-btn">สั่งซื้อ</a>
+      </div>
+    </div>
+    <a href="order.html?prompt=Prompt 080" class="title">Prompt 080</a>
+  </div>
+
+  <!-- Prompt 079 -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/person/p5003.jpg" alt="Prompt 079">
+      <div class="overlay">
+        <a href="order.html?prompt=Prompt 079" class="buy-btn">สั่งซื้อ</a>
+      </div>
+    </div>
+    <a href="order.html?prompt=Prompt 079" class="title">Prompt 079</a>
+  </div>
+
+  <!-- Prompt 078 -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/person/p5002.jpg" alt="Prompt 078">
+      <div class="overlay">
+        <a href="order.html?prompt=Prompt 078" class="buy-btn">สั่งซื้อ</a>
+      </div>
+    </div>
+    <a href="order.html?prompt=Prompt 078" class="title">Prompt 078</a>
+  </div>
+
+  <!-- Prompt 077 -->
+  <div class="card">
+    <div class="img-wrap">
+      <img src="images/person/p5001.jpg" alt="Prompt 077">
+      <div class="overlay">
+        <a href="order.html?prompt=Prompt 077" class="buy-btn">สั่งซื้อ</a>
+      </div>
+    </div>
+    <a href="order.html?prompt=Prompt 077" class="title">Prompt 077</a>
+  </div>
+
+</div>
+
+<div class="pagination">
+  <span></span>
+  <a href="gallery-person-4.html">Next →</a>
+</div>
+
+<footer>
+© 2025 AI Persona Studio | Created by Kru Sandra | All rights reserved.
+</footer>
+
+</body>
+</html>
