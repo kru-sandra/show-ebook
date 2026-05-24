@@ -173,20 +173,7 @@ footer{
 
 </div>
 
-<script>
-/* 🔒 Login Guard */
-if(localStorage.getItem("loggedIn") !== "true"){
-  window.location.href = "index.html";
-}
 
-/* 🚪 Logout */
-function logout(){
-  if(confirm("ต้องการออกจากระบบหรือไม่?")){
-    localStorage.removeItem("loggedIn");
-    window.location.href = "index.html";
-  }
-}
-</script>
 
 </body>
 </html>
