@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>หมวดน้องการ์ตูนน่ารัก</title>
+
+<style>
+body{
+  margin:0;
+  padding:16px;
+  font-family:system-ui, sans-serif;
+  background:#fff5f7;
+}
+
+/* TOP BAR */
+.top-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.top-bar a{
+  text-decoration:none;
+  color:#ff6f91;
+  font-weight:600;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn{
+  background:white;
+  padding:6px 14px;
+  border-radius:20px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  color:#ff6f91;
+  font-weight:600;
+}
+
+/* TITLE */
+#pageTitle{
+  text-align:center;
+  margin:10px 0 14px;
+  line-height:1.2;
+}
+
+#pageTitle .title-main{
+  display:block;
+  font-size:20px;
+  font-weight:600;
+  color:#333;
+}
+
+#pageTitle .title-sub{
+  display:block;
+  font-size:14px;
+  font-weight:500;
+  color:#999;
+  margin-top:4px;
+}
+
+/* PAGE NAV */
+.page-nav{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:6px 4px 14px;
+  margin-bottom:20px;
+  justify-content:center;
+  -webkit-overflow-scrolling:touch;
+}
+.page-nav.bottom{
+  margin-top:30px;
+}
+.page-nav::-webkit-scrollbar{display:none;}
+.page-nav a{
+  min-width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  text-decoration:none;
+  font-weight:600;
+  color:#ff6f91;
+  background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+.page-nav a.active{
+  background:#ff6f91;
+  color:#fff;
+  pointer-events:none;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:16px;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,.06);
+  cursor:pointer;
+  transition:transform .25s ease, box-shadow .25s ease;
+  text-align:center;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 20px rgba(0,0,0,.12);
+}
+
+/* PROMPT NUMBER */
+.card .prompt-no{
+  font-size:14px;
+  font-weight:700;
+  color:#000;
+  margin-bottom:6px;
+}
+.card img{
+  width:100%;
+  border-radius:12px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  font-size:12px;
+  color:#999;
+  margin:20px 0;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔐 LOGIN CHECK -->
+<script>
+if(localStorage.getItem("loggedIn") !== "true"){
+  window.location.href = "index.html";
+}
+</script>
+
+<!-- TOP -->
+<div class="top-bar">
+  <a href="content.html">🏠 Content</a>
+
+  <!-- 🚪 LOGOUT BUTTON -->
+  <a href="#" class="logout-btn" onclick="logout()">📕 Logout</a>
+</div>
+
+<!-- TITLE -->
+<h1 id="pageTitle">
+  <span class="title-main">หมวดน้องการ์ตูนน่ารัก</span>
+  <span class="title-sub"></span>
+</h1>
+
+<!-- PAGE NAV (TOP) -->
+<div class="page-nav" id="pageNavTop"></div>
+
+<!-- GALLERY -->
+<div class="gallery" id="gallery"></div>
+
+<!-- PAGE NAV (BOTTOM) -->
+<div class="page-nav bottom" id="pageNavBottom"></div>
+
+<footer>
+© 2025 AI Persona Studio | Created by Kru Sandra | All rights reserved.
+</footer>
+
+<script>
+/* ================= CONFIG ================= */
+const TOTAL_PAGES = 5;     // 👈 แก้จำนวนหน้าตามที่มีจริง
+const PER_PAGE = 20;
+const START = 1;
+const END = 98;
+
+/* ============ CURRENT PAGE (AUTO) ============ */
+const match = location.pathname.match(/gallery-person-(\d+)\.html/);
+const currentPage = match ? parseInt(match[1]) : 1;
+
+/* ============ TITLE ============ */
+document.querySelector("#pageTitle .title-sub").textContent =
+  `หน้าที่ ${currentPage}`;
+
+/* ============ BUILD IMAGES ARRAY ============ */
+const IMAGES = Array.from(
+  {length: END - START + 1},
+  (_,i)=>START + i
+);
+
+/* ============ PAGINATION CALC ============ */
+const startIndex = (currentPage - 1) * PER_PAGE;
+const endIndex = startIndex + PER_PAGE;
+const pageImages = IMAGES.slice(startIndex, endIndex);
+
+/* ============ BUILD GALLERY (DESC ORDER) ============ */
+const gallery = document.getElementById("gallery");
+pageImages.slice().reverse().forEach(num=>{
+  const id = String(num).padStart(3,"0");
+
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="prompt-no">Prompt ${id}</div>
+    <img src="images/person/p${id}.jpg" alt="Prompt ${id}">
+  `;
+  card.onclick = ()=>location.href = `prompt-person-${id}.html`;
+  gallery.appendChild(card);
+});
+
+/* ============ BUILD PAGE NAV (TOP & BOTTOM) ============ */
+function buildPageNav(containerId){
+  const nav = document.getElementById(containerId);
+  nav.innerHTML = "";
+
+  if(currentPage > 1){
+    nav.innerHTML += `<a href="gallery-person-${currentPage - 1}.html">←</a>`;
+  }
+
+  for(let i=1;i<=TOTAL_PAGES;i++){
+    nav.innerHTML += `<a class="${i===currentPage?'active':''}" href="gallery-person-${i}.html">${i}</a>`;
+  }
+
+  if(currentPage < TOTAL_PAGES){
+    nav.innerHTML += `<a href="gallery-person-${currentPage + 1}.html">→</a>`;
+  }
+}
+
+buildPageNav("pageNavTop");
+buildPageNav("pageNavBottom");
+
+/* ============ LOGOUT FUNCTION ============ */
+function logout(){
+  if(confirm("ต้องการออกจากระบบหรือไม่?")){
+    localStorage.removeItem("loggedIn");
+    window.location.href = "index.html";
+  }
+}
+</script>
+
+</body>
+</html>
